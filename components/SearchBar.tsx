@@ -17,7 +17,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => (
     >
       <InputSlot className="pl-3">
         <View className="flex">
-          <FontAwesomeIcon icon={faSearch} color="#ccc" />
+          <FontAwesomeIcon icon={faSearch} color="#ccc" testID="search-icon" />
         </View>
       </InputSlot>
       <InputField 
@@ -26,8 +26,11 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => (
         onChangeText={setSearchQuery} 
       />
     </Input>
-    <Pressable className="rounded-lg w-14 bg-chosen-1 color-chosen-4 justify-center items-center border border-outline-300">
-      <FontAwesomeIcon icon={faSliders} color="#ffffff" />
+    <Pressable
+      className="rounded-lg w-14 bg-chosen-1 color-chosen-4 justify-center items-center border border-outline-300"
+      testID="filter-button"
+    >
+      <FontAwesomeIcon icon={faSliders} color="#ffffff" testID="filter-icon" />
     </Pressable>
   </HStack>
 );

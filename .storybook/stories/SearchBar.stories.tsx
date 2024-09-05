@@ -31,7 +31,7 @@ export const Default: Story = {
         searchQuery={searchQuery} 
         setSearchQuery={(query) => {
           setSearchQuery(query); 
-          args.setSearchQuery(query); 
+          args.setSearchQuery(query); }}
       />
     );
   },

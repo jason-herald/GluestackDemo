@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { FlatList, SafeAreaView, View } from "react-native";
 import { useRouter } from "expo-router";
 import * as LocalAuthentication from 'expo-local-authentication';
-import ProductList from "@/components/ProductList";
 import BiometricAuthButton from "@/components/BiometricAuthButton";
 import Header from "@/components/Header";
 import SearchBar from "@/components/SearchBar";
@@ -11,9 +10,16 @@ import BottomNavBar from "@/components/BottomNavBar";
 import products from "../../assets/products";
 import { useFavorites } from "../../context/FavoritesContext";
 import ProductCard from "@/components/ProductCard";
-
+import Constants from 'expo-constants';
+const isStorybook = Constants.expoConfig.extra.storybookEnabled;
 
 export default function HomeScreen() {
+
+  if (isStorybook) {
+    const StorybookUIRoot = require('../../.storybook').default;
+    return <StorybookUIRoot />;
+  }
+
   const router = useRouter();
   const [isBiometricSupported, setIsBiometricSupported] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
